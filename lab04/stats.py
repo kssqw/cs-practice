@@ -17,3 +17,17 @@ def parse_record(line: str) -> dict:
         "date": date
     }
     return res
+def read_valid(lines: list[str]) -> list[dict]:
+    valid_records = [] 
+    
+    for line in lines:
+        if line == "":
+            continue
+            
+        try:
+            record = parse_record(line)
+            valid_records.append(record)
+        except ValueError:
+            pass
+            
+    return valid_records
