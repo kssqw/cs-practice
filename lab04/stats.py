@@ -36,7 +36,7 @@ def average_by_city(records: list[dict]) -> dict:
     counts = {} 
     for r in records:
         city = r["city"]
-        t = r["temp"]
+        t = r["temperature"]
         if city not in sums:
             sums[city] = t
             counts[city] = 1
