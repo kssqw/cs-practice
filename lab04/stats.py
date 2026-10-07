@@ -5,6 +5,7 @@ def parse_record(line: str) -> dict:
     city = parts[0]
     temp_str = parts[1]
     date = parts[2]
+    temp_str  = temp_str.replace(',', '.')
     if city == "" or date == "":
         raise ValueError("Ошибка: пустое поле!")
     try:
