@@ -2,9 +2,9 @@ def parse_record(line: str) -> dict:
     parts = line.split(";")
     if len(parts) != 3:
         raise ValueError("Ошибка: должно быть 3 поля!")
-    city = parts[0]
-    temp_str = parts[1]
-    date = parts[2]
+    city = parts[0].strip()
+    temp_str = parts[1].strip()
+    date = parts[2].strip()
     temp_str  = temp_str.replace(',', '.')
     if city == "" or date == "":
         raise ValueError("Ошибка: пустое поле!")
