@@ -55,4 +55,17 @@ def top_errors(lines, n):
         lst.append([k, dct[k]])     
     lst.sort(key=lambda x: x[0])
     lst.sort(key=lambda x: x[1], reverse=True)
-    
+    out = lst[:n]
+    return out
+
+
+def format_report(counts, errors):
+    txt = "Отчёт по журналу\n\n"
+    kluchi = sorted(counts.keys())
+    for k in kluchi:
+        txt = txt + k + ": " + str(counts[k]) + "\n"      
+    txt = txt + "\nЧастые ошибки:\n"
+    for err in errors:
+        txt = txt + "- " + err[0] + " — " + str(err[1]) + "\n"
+        
+    return txt
