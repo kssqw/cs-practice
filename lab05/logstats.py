@@ -34,3 +34,25 @@ def count_levels(lines):
             res["BROKEN"] = res["BROKEN"] + 1
             
     return res
+def top_errors(lines, n):
+    dct = {}
+    
+    for s in lines:
+        if s.strip() == "":
+            continue
+        try:
+            e = parse_event(s)
+            if e["level"] == "ERROR":
+                m = e["message"]
+                if m in dct:
+                    dct[m] = dct[m] + 1
+                else:
+                    dct[m] = 1
+        except ValueError:
+            continue
+    lst = []
+    for k in dct:
+        lst.append([k, dct[k]])     
+    lst.sort(key=lambda x: x[0])
+    lst.sort(key=lambda x: x[1], reverse=True)
+    
