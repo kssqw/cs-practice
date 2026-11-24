@@ -11,21 +11,22 @@ print("hours:", hours)
 print("shape:", hours.shape, "ndim:", hours.ndim, "size:", hours.size, "dtype:", hours.dtype)
 
 print("\n--- Задание 2 ---")
-print("Третий элемент:", hours[2])
+print("Третий элемент:", hours.item(2))
 print("Последний элемент:", hours[-1])
 print("Элементы с индексами 2–5:", hours[2:6])
 print("Каждый второй элемент:", hours[::2])
 print("Массив в обратном порядке:", hours[::-1])
 
 print("\n--- Задание 3 ---")
-temperatures = np.array([,
- ,
- ,
-])
+temperatures = np.array((
+    (12, 14, 13, 15),
+    (11, 13, 16, 17),
+    (10, 12, 15, 18),
+))
 
 print("Форма:", temperatures.shape, "Измерений:", temperatures.ndim, "Элементов:", temperatures.size)
-print("Вторая строка, третий столбец:", temperatures[1, 2])
-print("Первая строка:", temperatures[0])
+print("Вторая строка, третий столбец:", temperatures.item(1, 2))
+print("Первая строка:", temperatures[0, :])
 print("Последний столбец:", temperatures[:, -1])
 print("Первые две строки без первого столбца:\n", temperatures[:2, 1:])
 print("Центральный фрагмент 2x2:\n", temperatures[0:2, 1:3])
@@ -49,7 +50,7 @@ part5 = matrix[-2:, -2:]
 print("Угловой блок 2x2 в правом нижнем углу:\n", part5, "\nshape:", part5.shape)
 
 print("\n--- Задание 5 ---")
-vector = np.array([10, 20, 30, 40, 50])
+vector = np.array((10, 20, 30, 40, 50))
 vector[1:4] = 0
 
 small_matrix = np.arange(1, 10).reshape(3, 3)
@@ -79,3 +80,4 @@ transposed = table.T
 print("Форма numbers:", numbers.shape)
 print("Форма table:", table.shape)
 print("Форма transposed:", transposed.shape)
+
